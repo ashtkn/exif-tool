@@ -24,7 +24,16 @@
       "git add"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashtkn/exif-tool.git"
+  },
   "author": "Asahi Takenouchi <le-soleil-levant.0802@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashtkn/exif-tool/issues"
+  },
+  "homepage": "https://github.com/ashtkn/exif-tool#readme",
   "devDependencies": {
     "@types/node": "^14.14.5",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
