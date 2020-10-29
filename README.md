@@ -7,8 +7,8 @@
 * EXIF情報の削除された画像ファイルを出力する．
 * 画像ファイルのEXIF情報を読み取り，JSONファイルとして出力する．出力する情報は以下のとおりです．
   * `filename`: ファイル名
-  * `imageWidth`: 幅（ピクセル）
-  * `imageHeight`: 高さ（ピクセル）
+  * `width`: 幅（ピクセル）
+  * `height`: 高さ（ピクセル）
   * `cameraMaker`: カメラのメーカー
   * `cameraModel`: カメラのモデル
   * `lens`: レンズ
