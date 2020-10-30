@@ -17,14 +17,34 @@ const main = async () => {
     const imageBuffer = await fs.readFile(imagePath)
     const tags = ExifReader.load(imageBuffer)
 
+    const createDate = ((): string => {
+      const rawCreateDate = tags['CreateDate'].description
+      const offsetTime = tags['OffsetTime'].description
+      if (/\+\d\d:\d\d$/.test(rawCreateDate)) {
+        return rawCreateDate
+      } else {
+        return `${rawCreateDate}${offsetTime}`
+      }
+    })()
+
+    const modifyDate = ((): string => {
+      const rawModifyDate = tags['ModifyDate'].description
+      const offsetTime = tags['OffsetTime'].description
+      if (/\+\d\d:\d\d$/.test(rawModifyDate)) {
+        return rawModifyDate
+      } else {
+        return `${rawModifyDate}${offsetTime}`
+      }
+    })()
+
     return {
       filename: imageFile.name,
       imageWidth: tags['Image Width'].value,
       imageHeight: tags['Image Height'].value,
       cameraMaker: tags['Make'].description,
       cameraModel: tags['Model'].description,
-      createDate: `${tags['CreateDate'].description}${tags['OffsetTime'].description}`,
-      modifyDate: tags['ModifyDate'].description,
+      createDate,
+      modifyDate,
       creatorTool: tags['CreatorTool'].description,
       lens: tags['Lens'].description,
       focalLength: tags['FocalLength'].description.split(' ')[0],
